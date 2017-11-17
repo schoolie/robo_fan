@@ -23,9 +23,10 @@ class ipCamTurret(ipCam):
         urllib.request.urlopen(start_url)
 
     def pan_stop(self):
-        stop_url = '{base_url}/?action=cmd&code={code}&value={direction}'.format(
-                base_url=self.base_url, code=3, direction=self.pan_dir)
-        urllib.request.urlopen(stop_url)
+        if hasattr(self, 'pan_dir'):
+            stop_url = '{base_url}/?action=cmd&code={code}&value={direction}'.format(
+                    base_url=self.base_url, code=3, direction=self.pan_dir)
+            urllib.request.urlopen(stop_url)
 
     def tilt(self, direction):
         if direction == 'up':
@@ -38,9 +39,10 @@ class ipCamTurret(ipCam):
         urllib.request.urlopen(start_url)
 
     def tilt_stop(self):
-        stop_url = '{base_url}/?action=cmd&code={code}&value={direction}'.format(
-                base_url=self.base_url, code=3, direction=self.tilt_dir)
-        urllib.request.urlopen(stop_url)
+        if hasattr(self, 'tilt_dir'):
+            stop_url = '{base_url}/?action=cmd&code={code}&value={direction}'.format(
+                    base_url=self.base_url, code=3, direction=self.tilt_dir)
+            urllib.request.urlopen(stop_url)
 
   
 # #globals

@@ -29,3 +29,6 @@ class ipCam(object):
         # Install the opener.
         # Now all calls to urllib.request.urlopen use our opener.
         urllib.request.install_opener(opener)
+
+        urllib.request.urlopen('http://24.28.2.107:81/media/?action=cmd&code=13&value=4')
+        # urllib.request.urlopen('http://24.28.2.107:81/set_misc.cgi?ptz_patrol_rate=0')

@@ -63,8 +63,8 @@ def main(display) :
     
     #init
     dims = MyDims()   
-    cam = capture_drivers.fileCapture('videos/sample.webm')
-    # cam = capture_drivers.ipCamCapture()
+    # cam = capture_drivers.fileCapture('videos/sample.webm')
+    cam = capture_drivers.ipCamCapture()
     
     
     cam.scale(dims.scaledown)
@@ -150,6 +150,8 @@ def main(display) :
                     cv2.circle(displayframe, objcenter, objradius, rgbtarget, 3)
                     font = cv2.FONT_HERSHEY_SIMPLEX
                     cv2.putText(displayframe, str(objcenter),(50,50), font, 0.5, 255)
+                    cv2.drawContours(displayframe, best_cnt, -1, (255,0,0), 3)
+                    
         #wait for motion
         if hsvtarget == None and modemotion == True: 
             if not avgstarted:
